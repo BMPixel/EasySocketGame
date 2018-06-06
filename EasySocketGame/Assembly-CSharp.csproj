@@ -46,7 +46,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\AIController.cs" />
+     <Compile Include="Assets\Scripts\Battlemanager.cs" />
+     <Compile Include="Assets\Scripts\CameraFollower.cs" />
+     <Compile Include="Assets\Scripts\PlayerRenderManager.cs" />
      <Compile Include="Assets\Scripts\SetBattleGround.cs" />
+     <Compile Include="Assets\Scripts\StarPlay.cs" />
+     <Compile Include="Assets\Scripts\StarSkyMove.cs" />
+     <Compile Include="Assets\Scripts\playerController.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Developer/Unity3D/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
