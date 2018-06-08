@@ -1,0 +1,13 @@
+syntax = "proto2";
+message Package {
+  enum Type
+  {
+    require = 4;
+    login = 1;
+    status = 2;
+    quit = 3;
+    move = 5;
+  }
+  optional Type type = 1;
+  optional string data = 2;
+}

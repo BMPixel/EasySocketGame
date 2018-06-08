@@ -1,0 +1,17 @@
+syntax = "proto2";
+message LoginMsg
+{
+    required int32 id = 1;
+    required float x = 2;
+    required float y = 3;
+    required float size = 4;
+    required string name = 5;
+    required Color color = 6;
+
+    message Color
+    {
+        required float r = 1;
+        required float g = 2;
+        required float b = 3;
+    }
+}

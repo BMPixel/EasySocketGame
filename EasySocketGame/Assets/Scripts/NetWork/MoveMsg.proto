@@ -1,0 +1,13 @@
+syntax = "proto2";
+message Package {
+  optional int32 time = 1;  // Unique ID number for this person.
+
+  message Action {
+    optional int32 id = 1;
+    optional float dx = 2;
+    optional float dy = 3;
+    optional float size = 4;
+  }
+
+  repeated Action actions = 2;
+}

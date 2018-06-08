@@ -1,0 +1,8 @@
+syntax = "proto2";
+message MoveMsg
+{
+  required int32 id = 1;
+  optional float dx = 2;
+  optional float dy = 3;
+  optional float size = 4;
+}

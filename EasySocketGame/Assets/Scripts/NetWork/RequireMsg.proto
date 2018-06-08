@@ -1,0 +1,11 @@
+syntax = "proto2";
+message RequireMsg {
+  enum RequireType
+  {
+    id = 1;
+    status = 2;
+    ranks = 3;
+  }
+
+  required RequireType require = 1;
+}
