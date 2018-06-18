@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerController : StarPlay 
+public class playerController : TankPlay 
 {
 
 	// Use this for initialization
@@ -13,9 +13,13 @@ public class playerController : StarPlay
 
     override public void Update()
     {
-        direction.x = Input.GetAxis("Horizontal");
-        direction.y = Input.GetAxis("Vertical");
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        direction = mousePos - transform.position;
         direction.Normalize();
+        if(Input.GetMouseButton(0) && Fight())
+        {
+            SendMessage("Fight");
+        }
         base.Update();
     }
 
@@ -23,18 +27,7 @@ public class playerController : StarPlay
     override public void FixedUpdate() 
     {
         base.FixedUpdate();
-        //Delete
-        if(Input.GetKeyDown(KeyCode.M))
-        {
-            rb.velocity *= -1;
-        }
-        //
 	}
-
-    override protected void OnTriggerEnter2D(Collider2D collision)
-    {
-        base.OnTriggerEnter2D(collision);
-    }
 
     override public void Die()
     {

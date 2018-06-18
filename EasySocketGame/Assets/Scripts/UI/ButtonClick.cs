@@ -47,7 +47,7 @@ public class ButtonClick : MonoBehaviour {
     public void DieGame()
     {
         target.SetActive(false);
-        Battlemanager.ins.starList[Battlemanager.ins.playerId].GetComponent<StarPlay>().Die();
+        Battlemanager.ins.starList[Battlemanager.ins.playerId].GetComponent<TankPlay>().Die();
         Battlemanager.ins.IsPause = false;
     }
 }

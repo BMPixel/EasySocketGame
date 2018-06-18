@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIController : StarPlay
+public class AIController : TankPlay
 {
 
+    List<TankPlay> tanks = new List<TankPlay>();
     // Use this for initialization
     override public void Start()
     {
         base.Start();
-        
     }
 
     override public void Update()
@@ -22,29 +22,23 @@ public class AIController : StarPlay
     void AI()
     {
         Transform obj = Battlemanager.ins.FindClosetStar(gameObject).transform;
-        Vector2 v = obj.GetComponent<Rigidbody2D>().velocity;
-        direction = (obj.position - transform.position).normalized;
-        if(v.sqrMagnitude > currentSpeed*currentSpeed && Vector2.Distance(obj.position,transform.position) < 5)
+        direction = (obj.position - transform.position);
+        if(direction.sqrMagnitude < 60 && Fight()) // close enough
         {
-            direction *= -1;
-            if(Vector2.Angle(v,rb.velocity) > 90)
+            if(HP < 0.4 * hpTotal) // run away
             {
-                rb.velocity *= -1;
+                Debug.Log(tanks.Count);
             }
+            SendMessage("Fight");
         }
-
+        direction.Normalize();
     }
 
 
     override public void FixedUpdate()
     {
+
         base.FixedUpdate();
-
-    }
-
-    override protected void OnTriggerEnter2D(Collider2D collision)
-    {
-        base.OnTriggerEnter2D(collision);
     }
 
     override public void Die()

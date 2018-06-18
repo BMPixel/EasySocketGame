@@ -15,7 +15,7 @@ public class SetBattleGround : MonoBehaviour {
     {
         get
         {
-            return new Vector2(Random.Range(left, right), Random.Range(top, bottom));
+            return new Vector2(Random.Range(left, right-1), Random.Range(top, bottom-1));
         }
     }
     public int width { get{return right - left; }}
